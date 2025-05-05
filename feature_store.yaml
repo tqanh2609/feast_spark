@@ -1,0 +1,39 @@
+project: test_feast_ibm
+registry: data/registry.db
+provider: local
+entity_key_serialization_version: 2
+offline_store:
+    type: spark
+    spark_conf:
+        spark.ui.enabled: "false"
+        spark.eventLog.enabled: "false"
+        spark.sql.extensions: "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions"
+        spark.hive.metastore.use.SSL: "true"
+        spark.hive.metastore.truststore.type: "JKS"
+        spark.hive.metastore.truststore.path: "file:///opt/ibm/jdk/lib/security/cacerts"
+        spark.hive.metastore.truststore.password: "changeit"
+        spark.hive.metastore.client.auth.mode: "PLAIN"
+        spark.hive.metastore.client.plain.username: "devadmin"
+        spark.hive.metastore.client.plain.password: "AX2Z1MBUoOergIb"
+        spark.sql.catalog.thidiemcatalog: "org.apache.iceberg.spark.SparkCatalog"
+        spark.sql.catalog.thidiemcatalog.type: "hive"
+        spark.sql.catalog.thidiemcatalog.uri: "thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083"
+        spark.hadoop.fs.s3a.bucket.thidiem.endpoint: "https://rook-ceph-rgw.vnpt.vn"
+        spark.hadoop.fs.s3a.bucket.thidiem.access.key: "WEeGX66cjJBVgira3DcU"
+        spark.hadoop.fs.s3a.bucket.thidiem.secret.key: "BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO"
+        spark.hadoop.fs.s3a.impl: "org.apache.hadoop.fs.s3a.S3AFileSystem"
+        spark.hadoop.fs.s3a.connection.ssl.enabled: "true"
+        spark.hadoop.fs.s3a.path.style.access: "true"
+        spark.hadoop.fs.s3a.access.key: "WEeGX66cjJBVgira3DcU"
+        spark.hadoop.fs.s3a.secret.key: "BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO"
+        spark.hadoop.fs.s3a.endpoint: "https://rook-ceph-rgw.vnpt.vn"
+        spark.hadoop.fs.s3a.aws.credentials.provider: "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider"
+        spark.executor.extraJavaOptions: "-Daws.java.v1.disableDeprecationAnnouncement=true"
+        spark.driver.extraJavaOptions: "-Daws.java.v1.disableDeprecationAnnouncement=true"
+online_store:
+    type: singlestore
+    host: 192.168.0.121
+    port: 32216
+    database: feast
+    user: admin
+    password: Vnpt@2025

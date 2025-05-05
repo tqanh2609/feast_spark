@@ -6,22 +6,29 @@ import pandas as pd
 from feast import FeatureStore
 from feast.data_source import PushMode
 
+from pyspark.sql import SparkSession
+
 
 def run_demo():
     store = FeatureStore(repo_path=".")
     print("\n--- Run feast apply ---")
+    spark.stop() # Stop the Spark session before running feast apply
     subprocess.run(["feast", "apply"])
 
     print("\n--- Historical features for training ---")
+    spark.stop() # Stop the Spark session before running
     fetch_historical_features_entity_df(store, for_batch_scoring=False)
 
     print("\n--- Historical features for batch scoring ---")
+    spark.stop() # Stop the Spark session before running
     fetch_historical_features_entity_df(store, for_batch_scoring=True)
 
     print("\n--- Load features into online store ---")
+    spark.stop() # Stop the Spark session before running
     store.materialize_incremental(end_date=datetime.now())
 
     print("\n--- Online features ---")
+    spark.stop() # Stop the Spark session before running
     fetch_online_features(store)
 
     # print("\n--- Online features retrieved (instead) through a feature service---")

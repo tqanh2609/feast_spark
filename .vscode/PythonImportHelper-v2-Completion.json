@@ -170,6 +170,14 @@
         "documentation": {}
     },
     {
+        "label": "SparkSession",
+        "importPath": "pyspark.sql",
+        "description": "pyspark.sql",
+        "isExtraImport": true,
+        "detail": "pyspark.sql",
+        "documentation": {}
+    },
+    {
         "label": "transformed_conv_rate",
         "kind": 2,
         "importPath": "example_repo",
@@ -282,7 +290,7 @@
         "kind": 2,
         "importPath": "test_workflow",
         "description": "test_workflow",
-        "peekOfCode": "def run_demo():\n    store = FeatureStore(repo_path=\".\")\n    print(\"\\n--- Run feast apply ---\")\n    subprocess.run([\"feast\", \"apply\"])\n    print(\"\\n--- Historical features for training ---\")\n    fetch_historical_features_entity_df(store, for_batch_scoring=False)\n    print(\"\\n--- Historical features for batch scoring ---\")\n    fetch_historical_features_entity_df(store, for_batch_scoring=True)\n    print(\"\\n--- Load features into online store ---\")\n    store.materialize_incremental(end_date=datetime.now())",
+        "peekOfCode": "def run_demo():\n    store = FeatureStore(repo_path=\".\")\n    print(\"\\n--- Run feast apply ---\")\n    spark.stop() # Stop the Spark session before running feast apply\n    subprocess.run([\"feast\", \"apply\"])\n    print(\"\\n--- Historical features for training ---\")\n    spark.stop() # Stop the Spark session before running\n    fetch_historical_features_entity_df(store, for_batch_scoring=False)\n    print(\"\\n--- Historical features for batch scoring ---\")\n    spark.stop() # Stop the Spark session before running",
         "detail": "test_workflow",
         "documentation": {}
     },

@@ -6,12 +6,10 @@ import pandas as pd
 from feast import FeatureStore
 from feast.data_source import PushMode
 
-from pyspark.sql import SparkSession
-
 
 def run_demo():
     store = FeatureStore(repo_path=".")
-    print("\n--- Run feast apply ---")
+    print("\n--- Run feast apply to setup feature store on Snowflake ---")
     subprocess.run(["feast", "apply"])
 
     print("\n--- Historical features for training ---")
@@ -24,39 +22,34 @@ def run_demo():
     store.materialize_incremental(end_date=datetime.now())
 
     print("\n--- Online features ---")
-    fetch_online_features(store)
+    fetch_online_features(store, use_feature_service=False)
 
-    # print("\n--- Online features retrieved (instead) through a feature service---")
-    # fetch_online_features(store, source="feature_service")
+    print("\n--- Online features retrieved (instead) through a feature service---")
+    fetch_online_features(store, use_feature_service=True)
 
-    # print(
-    #     "\n--- Online features retrieved (using feature service v3, which uses a feature view with a push source---"
-    # )
-    # fetch_online_features(store, source="push")
+    print("\n--- Simulate a stream event ingestion of the hourly stats df ---")
+    event_df = pd.DataFrame.from_dict(
+        {
+            "driver_id": [1001],
+            "event_timestamp": [
+                datetime(2021, 5, 13, 10, 59, 42),
+            ],
+            "created": [
+                datetime(2021, 5, 13, 10, 59, 42),
+            ],
+            "conv_rate": [1.0],
+            "acc_rate": [1.0],
+            "avg_daily_trips": [1000],
+        }
+    )
+    print(event_df)
+    store.push("driver_stats_push_source", event_df, to=PushMode.ONLINE)
 
-    # print("\n--- Simulate a stream event ingestion of the hourly stats df ---")
-    # event_df = pd.DataFrame.from_dict(
-    #     {
-    #         "driver_id": [1001],
-    #         "event_timestamp": [
-    #             datetime.now(),
-    #         ],
-    #         "created": [
-    #             datetime.now(),
-    #         ],
-    #         "conv_rate": [1.0],
-    #         "acc_rate": [1.0],
-    #         "avg_daily_trips": [1000],
-    #     }
-    # )
-    # print(event_df)
-    # store.push("driver_stats_push_source", event_df, to=PushMode.ONLINE_AND_OFFLINE)
+    print("\n--- Online features again with updated values from a stream push---")
+    fetch_online_features(store, use_feature_service=True)
 
-    # print("\n--- Online features again with updated values from a stream push---")
-    # fetch_online_features(store, source="push")
-
-    # print("\n--- Run feast teardown ---")
-    # subprocess.run(["feast", "teardown"])
+    print("\n--- Run feast teardown ---")
+    subprocess.run(["feast", "teardown"])
 
 
 def fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):
@@ -96,7 +89,7 @@ def fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: 
     print(training_df.head())
 
 
-def fetch_online_features(store, source: str = ""):
+def fetch_online_features(store, use_feature_service: bool):
     entity_rows = [
         # {join_key: entity_value}
         {
@@ -110,13 +103,12 @@ def fetch_online_features(store, source: str = ""):
             "val_to_add_2": 2002,
         },
     ]
-    if source == "feature_service":
+    if use_feature_service:
         features_to_fetch = store.get_feature_service("driver_activity_v1")
-    elif source == "push":
-        features_to_fetch = store.get_feature_service("driver_activity_v3")
     else:
         features_to_fetch = [
             "driver_hourly_stats:acc_rate",
+            "driver_hourly_stats:avg_daily_trips",
             "transformed_conv_rate:conv_rate_plus_val1",
             "transformed_conv_rate:conv_rate_plus_val2",
         ]

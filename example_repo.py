@@ -32,12 +32,12 @@ driver_hourly_stats = SparkSource(
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
 )
-customer_daily_profile = SparkSource(
-    name="customer_daily_profile",
-    table="thidiemcatalog.testthidiem.customer_daily_profile",
-    timestamp_field="event_timestamp",
-    created_timestamp_column="created",
-)
+# customer_daily_profile = SparkSource(
+#     name="customer_daily_profile",
+#     table="thidiemcatalog.testthidiem.customer_daily_profile",
+#     timestamp_field="event_timestamp",
+#     created_timestamp_column="created",
+# )
 
 # Feature Views
 driver_hourly_stats_view = FeatureView(
@@ -53,21 +53,22 @@ driver_hourly_stats_view = FeatureView(
     source=driver_hourly_stats,
     tags={},
 )
-customer_daily_profile_view = FeatureView(
-    name="customer_daily_profile",
-    entities=[customer],
-    ttl=timedelta(days=7),
-    schema=[
-        Field(name="current_balance", dtype=Float32),
-        Field(name="avg_passenger_count", dtype=Float32),
-        Field(name="lifetime_trip_count", dtype=Int64),
-    ],
-    online=True,
-    source=customer_daily_profile,
-    tags={},
-)
+# customer_daily_profile_view = FeatureView(
+#     name="customer_daily_profile",
+#     entities=[customer],
+#     ttl=timedelta(days=7),
+#     schema=[
+#         Field(name="current_balance", dtype=Float32),
+#         Field(name="avg_passenger_count", dtype=Float32),
+#         Field(name="lifetime_trip_count", dtype=Int64),
+#     ],
+#     online=True,
+#     source=customer_daily_profile,
+#     tags={},
+# )
 
 driver_stats_fs = FeatureService(
     name="driver_activity",
-    features=[driver_hourly_stats_view, customer_daily_profile_view],
+    features=[driver_hourly_stats_view],
 )
+# customer_daily_profile_view

@@ -227,16 +227,7 @@
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_hourly_stats = SparkSource(\n    name=\"driver_hourly_stats\",\n    table=\"thidiemcatalog.testthidiem.driver_hourly_stats\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",\n)\ncustomer_daily_profile = SparkSource(\n    name=\"customer_daily_profile\",\n    table=\"thidiemcatalog.testthidiem.customer_daily_profile\",\n    timestamp_field=\"event_timestamp\",",
-        "detail": "example_repo",
-        "documentation": {}
-    },
-    {
-        "label": "customer_daily_profile",
-        "kind": 5,
-        "importPath": "example_repo",
-        "description": "example_repo",
-        "peekOfCode": "customer_daily_profile = SparkSource(\n    name=\"customer_daily_profile\",\n    table=\"thidiemcatalog.testthidiem.customer_daily_profile\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",\n)\n# Feature Views\ndriver_hourly_stats_view = FeatureView(\n    name=\"driver_hourly_stats\",\n    entities=[driver],",
+        "peekOfCode": "driver_hourly_stats = SparkSource(\n    name=\"driver_hourly_stats\",\n    table=\"thidiemcatalog.testthidiem.driver_hourly_stats\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",\n)\n# customer_daily_profile = SparkSource(\n#     name=\"customer_daily_profile\",\n#     table=\"thidiemcatalog.testthidiem.customer_daily_profile\",\n#     timestamp_field=\"event_timestamp\",",
         "detail": "example_repo",
         "documentation": {}
     },
@@ -250,20 +241,11 @@
         "documentation": {}
     },
     {
-        "label": "customer_daily_profile_view",
-        "kind": 5,
-        "importPath": "example_repo",
-        "description": "example_repo",
-        "peekOfCode": "customer_daily_profile_view = FeatureView(\n    name=\"customer_daily_profile\",\n    entities=[customer],\n    ttl=timedelta(days=7),\n    schema=[\n        Field(name=\"current_balance\", dtype=Float32),\n        Field(name=\"avg_passenger_count\", dtype=Float32),\n        Field(name=\"lifetime_trip_count\", dtype=Int64),\n    ],\n    online=True,",
-        "detail": "example_repo",
-        "documentation": {}
-    },
-    {
         "label": "driver_stats_fs",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_stats_fs = FeatureService(\n    name=\"driver_activity\",\n    features=[driver_hourly_stats_view, customer_daily_profile_view],\n)",
+        "peekOfCode": "driver_stats_fs = FeatureService(\n    name=\"driver_activity\",\n    features=[driver_hourly_stats_view],\n)\n# customer_daily_profile_view",
         "detail": "example_repo",
         "documentation": {}
     },
@@ -308,7 +290,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "wxd_hms_username = 'devadmin'\nwxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\",
+        "peekOfCode": "wxd_hms_username = 'devadmin'\nwxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -317,7 +299,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "wxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\",
+        "peekOfCode": "wxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\\n#             .appName(\"test\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -326,7 +308,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "iceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\",
+        "peekOfCode": "iceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\\n#             .appName(\"test\") \\\n#             .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n#             .config(\"spark.datasource.singlestore.user\", \"admin\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -335,7 +317,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "access_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\",
+        "peekOfCode": "access_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\\n#             .appName(\"test\") \\\n#             .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n#             .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n#             .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -344,7 +326,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "secret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\",
+        "peekOfCode": "secret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\\n#             .appName(\"test\") \\\n#             .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n#             .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n#             .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n#             .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -353,7 +335,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "bucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\",
+        "peekOfCode": "bucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\\n#             .appName(\"test\") \\\n#             .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n#             .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n#             .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n#             .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n#             .config(\"spark.hive.metastore.use.SSL\", \"true\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -362,7 +344,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "hivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n            .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\",
+        "peekOfCode": "hivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\\n#             .appName(\"test\") \\\n#             .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n#             .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n#             .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n#             .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n#             .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n#             .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -371,16 +353,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "s3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n            .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\\n            .config(\"spark.hive.metastore.truststore.path\", \"file:///opt/ibm/jdk/lib/security/cacerts\") \\",
-        "detail": "qa_feast_spark",
-        "documentation": {}
-    },
-    {
-        "label": "spark",
-        "kind": 5,
-        "importPath": "qa_feast_spark",
-        "description": "qa_feast_spark",
-        "peekOfCode": "spark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n            .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\\n            .config(\"spark.hive.metastore.truststore.path\", \"file:///opt/ibm/jdk/lib/security/cacerts\") \\\n            .config(\"spark.hive.metastore.truststore.password\", \"changeit\") \\",
+        "peekOfCode": "s3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\n# spark = SparkSession.builder \\\n#             .appName(\"test\") \\\n#             .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n#             .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n#             .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n#             .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n#             .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n#             .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\\n#             .config(\"spark.hive.metastore.truststore.path\", \"file:///opt/ibm/jdk/lib/security/cacerts\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },

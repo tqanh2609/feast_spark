@@ -389,7 +389,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "path = '/spark_job/QuangAnh/feastspark/main/qa_feast_spark.py'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve\n    # for all entities in the offline store instead\n    entity_df = pd.DataFrame.from_dict(\n        {",
+        "peekOfCode": "path = '/spark_job/QuangAnh/feastspark/main/'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve\n    # for all entities in the offline store instead\n    entity_df = pd.DataFrame.from_dict(\n        {",
         "detail": "qa_feast_spark",
         "documentation": {}
     },

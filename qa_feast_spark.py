@@ -74,7 +74,7 @@ from feast import FeatureStore
 from feast.data_source import PushMode
 
 # Specify the path you want to change to
-path = '/spark_job/QuangAnh/feastspark/main/qa_feast_spark.py'
+path = '/spark_job/QuangAnh/feastspark/main/'
 
 # Change the current working directory
 os.chdir(path)

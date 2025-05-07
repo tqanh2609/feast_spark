@@ -16,12 +16,11 @@
         "documentation": {}
     },
     {
-        "label": "pandas",
-        "kind": 6,
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "importPath": "pandas",
-        "description": "pandas",
-        "detail": "pandas",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -57,38 +56,6 @@
         "documentation": {}
     },
     {
-        "label": "FileSource",
-        "importPath": "feast",
-        "description": "feast",
-        "isExtraImport": true,
-        "detail": "feast",
-        "documentation": {}
-    },
-    {
-        "label": "Project",
-        "importPath": "feast",
-        "description": "feast",
-        "isExtraImport": true,
-        "detail": "feast",
-        "documentation": {}
-    },
-    {
-        "label": "PushSource",
-        "importPath": "feast",
-        "description": "feast",
-        "isExtraImport": true,
-        "detail": "feast",
-        "documentation": {}
-    },
-    {
-        "label": "RequestSource",
-        "importPath": "feast",
-        "description": "feast",
-        "isExtraImport": true,
-        "detail": "feast",
-        "documentation": {}
-    },
-    {
         "label": "FeatureStore",
         "importPath": "feast",
         "description": "feast",
@@ -97,39 +64,15 @@
         "documentation": {}
     },
     {
-        "label": "LoggingConfig",
-        "importPath": "feast.feature_logging",
-        "description": "feast.feature_logging",
+        "label": "SparkSource",
+        "importPath": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
+        "description": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
         "isExtraImport": true,
-        "detail": "feast.feature_logging",
-        "documentation": {}
-    },
-    {
-        "label": "FileLoggingDestination",
-        "importPath": "feast.infra.offline_stores.file_source",
-        "description": "feast.infra.offline_stores.file_source",
-        "isExtraImport": true,
-        "detail": "feast.infra.offline_stores.file_source",
-        "documentation": {}
-    },
-    {
-        "label": "on_demand_feature_view",
-        "importPath": "feast.on_demand_feature_view",
-        "description": "feast.on_demand_feature_view",
-        "isExtraImport": true,
-        "detail": "feast.on_demand_feature_view",
+        "detail": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
         "documentation": {}
     },
     {
         "label": "Float32",
-        "importPath": "feast.types",
-        "description": "feast.types",
-        "isExtraImport": true,
-        "detail": "feast.types",
-        "documentation": {}
-    },
-    {
-        "label": "Float64",
         "importPath": "feast.types",
         "description": "feast.types",
         "isExtraImport": true,
@@ -145,20 +88,21 @@
         "documentation": {}
     },
     {
-        "label": "SparkSource",
-        "importPath": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
-        "description": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
-        "isExtraImport": true,
-        "detail": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
-        "documentation": {}
-    },
-    {
         "label": "subprocess",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "subprocess",
         "description": "subprocess",
         "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
         "documentation": {}
     },
     {
@@ -170,37 +114,11 @@
         "documentation": {}
     },
     {
-        "label": "SparkSession",
-        "importPath": "pyspark.sql",
-        "description": "pyspark.sql",
-        "isExtraImport": true,
-        "detail": "pyspark.sql",
-        "documentation": {}
-    },
-    {
-        "label": "transformed_conv_rate",
-        "kind": 2,
-        "importPath": "example_repo",
-        "description": "example_repo",
-        "peekOfCode": "def transformed_conv_rate(inputs: pd.DataFrame) -> pd.DataFrame:\n    df = pd.DataFrame()\n    df[\"conv_rate_plus_val1\"] = inputs[\"conv_rate\"] + inputs[\"val_to_add\"]\n    df[\"conv_rate_plus_val2\"] = inputs[\"conv_rate\"] + inputs[\"val_to_add_2\"]\n    return df\n# This groups features into a model version\ndriver_activity_v1 = FeatureService(\n    name=\"driver_activity_v1\",\n    features=[\n        driver_stats_fv[[\"conv_rate\"]],  # Sub-selects a feature from a feature view",
-        "detail": "example_repo",
-        "documentation": {}
-    },
-    {
-        "label": "transformed_conv_rate_fresh",
-        "kind": 2,
-        "importPath": "example_repo",
-        "description": "example_repo",
-        "peekOfCode": "def transformed_conv_rate_fresh(inputs: pd.DataFrame) -> pd.DataFrame:\n    df = pd.DataFrame()\n    df[\"conv_rate_plus_val1\"] = inputs[\"conv_rate\"] + inputs[\"val_to_add\"]\n    df[\"conv_rate_plus_val2\"] = inputs[\"conv_rate\"] + inputs[\"val_to_add_2\"]\n    return df\ndriver_activity_v3 = FeatureService(\n    name=\"driver_activity_v3\",\n    features=[driver_stats_fresh_fv, transformed_conv_rate_fresh],\n)",
-        "detail": "example_repo",
-        "documentation": {}
-    },
-    {
-        "label": "project",
+        "label": "CURRENT_DIR",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "project = Project(name=\"test_feast_ibm\", description=\"A project for driver statistics\")\n# Define an entity for the driver. You can think of an entity as a primary key used to\n# fetch features.\ndriver = Entity(name=\"driver\", join_keys=[\"driver_id\"])\n# Read data from parquet files. Parquet is convenient for local development mode. For\n# production, you can use your favorite DWH, such as BigQuery. See Feast documentation\n# for more info.\ndriver_stats_source = SparkSource(\n    name=\"driver_hourly_stats_source\",\n    table=\"thidiemcatalog.testthidiem.driver_stats\",  # Replace with your actual catalog, database, and table names",
+        "peekOfCode": "CURRENT_DIR = Path(__file__).parent\n# Entity definitions\ndriver = Entity(\n    name=\"driver\",\n    description=\"driver id\",\n)\ncustomer = Entity(\n    name=\"customer\",\n    description=\"customer id\",\n)",
         "detail": "example_repo",
         "documentation": {}
     },
@@ -209,79 +127,61 @@
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver = Entity(name=\"driver\", join_keys=[\"driver_id\"])\n# Read data from parquet files. Parquet is convenient for local development mode. For\n# production, you can use your favorite DWH, such as BigQuery. See Feast documentation\n# for more info.\ndriver_stats_source = SparkSource(\n    name=\"driver_hourly_stats_source\",\n    table=\"thidiemcatalog.testthidiem.driver_stats\",  # Replace with your actual catalog, database, and table names\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\"\n)",
+        "peekOfCode": "driver = Entity(\n    name=\"driver\",\n    description=\"driver id\",\n)\ncustomer = Entity(\n    name=\"customer\",\n    description=\"customer id\",\n)\n# Sources\ndriver_hourly_stats = SparkSource(",
         "detail": "example_repo",
         "documentation": {}
     },
     {
-        "label": "driver_stats_source",
+        "label": "customer",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_stats_source = SparkSource(\n    name=\"driver_hourly_stats_source\",\n    table=\"thidiemcatalog.testthidiem.driver_stats\",  # Replace with your actual catalog, database, and table names\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\"\n)\n# Our parquet files contain sample data that includes a driver_id column, timestamps and\n# three feature column. Here we define a Feature View that will allow us to serve this\n# data to our model online.\ndriver_stats_fv = FeatureView(",
+        "peekOfCode": "customer = Entity(\n    name=\"customer\",\n    description=\"customer id\",\n)\n# Sources\ndriver_hourly_stats = SparkSource(\n    name=\"driver_hourly_stats\",\n    table=\"thidiemcatalog.testthidiem.driver_hourly_stats\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",",
         "detail": "example_repo",
         "documentation": {}
     },
     {
-        "label": "driver_stats_fv",
+        "label": "driver_hourly_stats",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_stats_fv = FeatureView(\n    # The unique name of this feature view. Two feature views in a single\n    # project cannot have the same name\n    name=\"driver_hourly_stats\",\n    entities=[driver],\n    ttl=timedelta(days=1),\n    # The list of features defined below act as a schema to both define features\n    # for both materialization of features into a store, and are used as references\n    # during retrieval for building a training dataset or serving features\n    schema=[",
+        "peekOfCode": "driver_hourly_stats = SparkSource(\n    name=\"driver_hourly_stats\",\n    table=\"thidiemcatalog.testthidiem.driver_hourly_stats\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",\n)\ncustomer_daily_profile = SparkSource(\n    name=\"customer_daily_profile\",\n    table=\"thidiemcatalog.testthidiem.customer_daily_profile\",\n    timestamp_field=\"event_timestamp\",",
         "detail": "example_repo",
         "documentation": {}
     },
     {
-        "label": "input_request",
+        "label": "customer_daily_profile",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "input_request = RequestSource(\n    name=\"vals_to_add\",\n    schema=[\n        Field(name=\"val_to_add\", dtype=Int64),\n        Field(name=\"val_to_add_2\", dtype=Int64),\n    ],\n)\n# Define an on demand feature view which can generate new features based on\n# existing feature views and RequestSource features\n@on_demand_feature_view(",
+        "peekOfCode": "customer_daily_profile = SparkSource(\n    name=\"customer_daily_profile\",\n    table=\"thidiemcatalog.testthidiem.customer_daily_profile\",\n    timestamp_field=\"event_timestamp\",\n    created_timestamp_column=\"created\",\n)\n# Feature Views\ndriver_hourly_stats_view = FeatureView(\n    name=\"driver_hourly_stats\",\n    entities=[driver],",
         "detail": "example_repo",
         "documentation": {}
     },
     {
-        "label": "driver_activity_v1",
+        "label": "driver_hourly_stats_view",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_activity_v1 = FeatureService(\n    name=\"driver_activity_v1\",\n    features=[\n        driver_stats_fv[[\"conv_rate\"]],  # Sub-selects a feature from a feature view\n        transformed_conv_rate,  # Selects all features from the feature view\n    ],\n    logging_config=LoggingConfig(\n        destination=FileLoggingDestination(path=\"data\")\n    ),\n)",
+        "peekOfCode": "driver_hourly_stats_view = FeatureView(\n    name=\"driver_hourly_stats\",\n    entities=[driver],\n    ttl=timedelta(days=7),\n    schema=[\n        Field(name=\"conv_rate\", dtype=Float32),\n        Field(name=\"acc_rate\", dtype=Float32),\n        Field(name=\"avg_daily_trips\", dtype=Int64),\n    ],\n    online=True,",
         "detail": "example_repo",
         "documentation": {}
     },
     {
-        "label": "driver_activity_v2",
+        "label": "customer_daily_profile_view",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_activity_v2 = FeatureService(\n    name=\"driver_activity_v2\", features=[driver_stats_fv, transformed_conv_rate]\n)\n# Defines a way to push data (to be available offline, online or both) into Feast.\ndriver_stats_push_source = PushSource(\n    name=\"driver_stats_push_source\",\n    batch_source=driver_stats_source,\n)\n# Defines a slightly modified version of the feature view from above, where the source\n# has been changed to the push source. This allows fresh features to be directly pushed",
+        "peekOfCode": "customer_daily_profile_view = FeatureView(\n    name=\"customer_daily_profile\",\n    entities=[customer],\n    ttl=timedelta(days=7),\n    schema=[\n        Field(name=\"current_balance\", dtype=Float32),\n        Field(name=\"avg_passenger_count\", dtype=Float32),\n        Field(name=\"lifetime_trip_count\", dtype=Int64),\n    ],\n    online=True,",
         "detail": "example_repo",
         "documentation": {}
     },
     {
-        "label": "driver_stats_push_source",
+        "label": "driver_stats_fs",
         "kind": 5,
         "importPath": "example_repo",
         "description": "example_repo",
-        "peekOfCode": "driver_stats_push_source = PushSource(\n    name=\"driver_stats_push_source\",\n    batch_source=driver_stats_source,\n)\n# Defines a slightly modified version of the feature view from above, where the source\n# has been changed to the push source. This allows fresh features to be directly pushed\n# to the online store for this feature view.\ndriver_stats_fresh_fv = FeatureView(\n    name=\"driver_hourly_stats_fresh\",\n    entities=[driver],",
-        "detail": "example_repo",
-        "documentation": {}
-    },
-    {
-        "label": "driver_stats_fresh_fv",
-        "kind": 5,
-        "importPath": "example_repo",
-        "description": "example_repo",
-        "peekOfCode": "driver_stats_fresh_fv = FeatureView(\n    name=\"driver_hourly_stats_fresh\",\n    entities=[driver],\n    ttl=timedelta(days=1),\n    schema=[\n        Field(name=\"conv_rate\", dtype=Float32),\n        Field(name=\"acc_rate\", dtype=Float32),\n        Field(name=\"avg_daily_trips\", dtype=Int64),\n    ],\n    online=True,",
-        "detail": "example_repo",
-        "documentation": {}
-    },
-    {
-        "label": "driver_activity_v3",
-        "kind": 5,
-        "importPath": "example_repo",
-        "description": "example_repo",
-        "peekOfCode": "driver_activity_v3 = FeatureService(\n    name=\"driver_activity_v3\",\n    features=[driver_stats_fresh_fv, transformed_conv_rate_fresh],\n)",
+        "peekOfCode": "driver_stats_fs = FeatureService(\n    name=\"driver_activity\",\n    features=[driver_hourly_stats_view, customer_daily_profile_view],\n)",
         "detail": "example_repo",
         "documentation": {}
     },
@@ -290,7 +190,7 @@
         "kind": 2,
         "importPath": "test_workflow",
         "description": "test_workflow",
-        "peekOfCode": "def run_demo():\n    store = FeatureStore(repo_path=\".\")\n    print(\"\\n--- Run feast apply ---\")\n    spark.stop() # Stop the Spark session before running feast apply\n    subprocess.run([\"feast\", \"apply\"])\n    print(\"\\n--- Historical features for training ---\")\n    spark.stop() # Stop the Spark session before running\n    fetch_historical_features_entity_df(store, for_batch_scoring=False)\n    print(\"\\n--- Historical features for batch scoring ---\")\n    spark.stop() # Stop the Spark session before running",
+        "peekOfCode": "def run_demo():\n    store = FeatureStore(repo_path=\".\")\n    print(\"\\n--- Run feast apply to setup feature store on Snowflake ---\")\n    subprocess.run([\"feast\", \"apply\"])\n    print(\"\\n--- Historical features for training ---\")\n    fetch_historical_features_entity_df(store, for_batch_scoring=False)\n    print(\"\\n--- Historical features for batch scoring ---\")\n    fetch_historical_features_entity_df(store, for_batch_scoring=True)\n    print(\"\\n--- Load features into online store ---\")\n    store.materialize_incremental(end_date=datetime.now())",
         "detail": "test_workflow",
         "documentation": {}
     },
@@ -308,7 +208,7 @@
         "kind": 2,
         "importPath": "test_workflow",
         "description": "test_workflow",
-        "peekOfCode": "def fetch_online_features(store, source: str = \"\"):\n    entity_rows = [\n        # {join_key: entity_value}\n        {\n            \"driver_id\": 1001,\n            \"val_to_add\": 1000,\n            \"val_to_add_2\": 2000,\n        },\n        {\n            \"driver_id\": 1002,",
+        "peekOfCode": "def fetch_online_features(store, use_feature_service: bool):\n    entity_rows = [\n        # {join_key: entity_value}\n        {\n            \"driver_id\": 1001,\n            \"val_to_add\": 1000,\n            \"val_to_add_2\": 2000,\n        },\n        {\n            \"driver_id\": 1002,",
         "detail": "test_workflow",
         "documentation": {}
     }

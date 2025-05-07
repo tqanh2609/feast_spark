@@ -34,6 +34,6 @@ online_store:
     type: singlestore
     host: 192.168.0.121
     port: 32216
-    database: feast
+    database: feastspark
     user: admin
     password: Vnpt@2025

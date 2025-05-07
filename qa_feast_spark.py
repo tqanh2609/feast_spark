@@ -7,7 +7,6 @@ from pyspark.sql.functions import col
 import subprocess
 import sys
 
-import subprocess
 from datetime import datetime
 
 import pandas as pd
@@ -39,13 +38,43 @@ hivemetastore_host = "thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.clust
 
 s3_endpoint = "https://rook-ceph-rgw.vnpt.vn"
 
+spark = SparkSession.builder \
+            .appName("test") \
+            .config("spark.datasource.singlestore.clientEndpoint", "192.168.0.121:32216") \
+            .config("spark.datasource.singlestore.user", "admin") \
+            .config("spark.datasource.singlestore.password", "secretpass") \
+            .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions") \
+            .config("spark.hive.metastore.use.SSL", "true") \
+            .config("spark.hive.metastore.truststore.type", "JKS") \
+            .config("spark.hive.metastore.truststore.path", "file:///opt/ibm/jdk/lib/security/cacerts") \
+            .config("spark.hive.metastore.truststore.password", "changeit") \
+            .config("spark.hive.metastore.client.auth.mode", "PLAIN") \
+            .config("spark.hive.metastore.client.plain.username", wxd_hms_username) \
+            .config("spark.hive.metastore.client.plain.password", wxd_hms_password) \
+            .config(f"spark.sql.catalog.{iceberg_catalog}", "org.apache.iceberg.spark.SparkCatalog") \
+            .config(f"spark.sql.catalog.{iceberg_catalog}.type", "hive") \
+            .config(f"spark.sql.catalog.{iceberg_catalog}.uri", hivemetastore_host) \
+            .config(f"spark.hadoop.fs.s3a.bucket.{bucket_name}.endpoint", s3_endpoint) \
+            .config(f"spark.hadoop.fs.s3a.bucket.{bucket_name}.access.key", access_key) \
+            .config(f"spark.hadoop.fs.s3a.bucket.{bucket_name}.secret.key", secret_key) \
+            .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
+            .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "true") \
+            .config("spark.hadoop.fs.s3a.path.style.access", "true") \
+            .config("spark.hadoop.fs.s3a.access.key", access_key) \
+            .config("spark.hadoop.fs.s3a.secret.key", secret_key) \
+            .config("spark.hadoop.fs.s3a.endpoint", s3_endpoint) \
+            .config("spark.hadoop.fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider") \
+            .config("spark.executor.extraJavaOptions", "-Daws.java.v1.disableDeprecationAnnouncement=true") \
+            .config("spark.driver.extraJavaOptions", "-Daws.java.v1.disableDeprecationAnnouncement=true") \
+            .getOrCreate()
+
 import os
 
 from feast import FeatureStore
 from feast.data_source import PushMode
 
 # Specify the path you want to change to
-path = '/mnts/code/QuangAnh/feastspark/main'
+path = '/spark_job/QuangAnh/feastspark/main/qa_feast_spark.py'
 
 # Change the current working directory
 os.chdir(path)

@@ -308,7 +308,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "wxd_hms_username = 'devadmin'\nwxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os",
+        "peekOfCode": "wxd_hms_username = 'devadmin'\nwxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -317,7 +317,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "wxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore",
+        "peekOfCode": "wxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -326,7 +326,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "iceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to",
+        "peekOfCode": "iceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -335,7 +335,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "access_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'",
+        "peekOfCode": "access_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -344,7 +344,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "secret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory",
+        "peekOfCode": "secret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -353,7 +353,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "bucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)",
+        "peekOfCode": "bucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -362,7 +362,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "hivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change",
+        "peekOfCode": "hivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n            .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -371,7 +371,16 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "s3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())",
+        "peekOfCode": "s3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nspark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n            .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\\n            .config(\"spark.hive.metastore.truststore.path\", \"file:///opt/ibm/jdk/lib/security/cacerts\") \\",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "spark",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "spark = SparkSession.builder \\\n            .appName(\"test\") \\\n            .config(\"spark.datasource.singlestore.clientEndpoint\", \"192.168.0.121:32216\") \\\n            .config(\"spark.datasource.singlestore.user\", \"admin\") \\\n            .config(\"spark.datasource.singlestore.password\", \"secretpass\") \\\n            .config(\"spark.sql.extensions\", \"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n            .config(\"spark.hive.metastore.use.SSL\", \"true\") \\\n            .config(\"spark.hive.metastore.truststore.type\", \"JKS\") \\\n            .config(\"spark.hive.metastore.truststore.path\", \"file:///opt/ibm/jdk/lib/security/cacerts\") \\\n            .config(\"spark.hive.metastore.truststore.password\", \"changeit\") \\",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -380,7 +389,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "path = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve\n    # for all entities in the offline store instead\n    entity_df = pd.DataFrame.from_dict(\n        {",
+        "peekOfCode": "path = '/spark_job/QuangAnh/feastspark/main/qa_feast_spark.py'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve\n    # for all entities in the offline store instead\n    entity_df = pd.DataFrame.from_dict(\n        {",
         "detail": "qa_feast_spark",
         "documentation": {}
     },

@@ -16,6 +16,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -64,6 +72,14 @@
         "documentation": {}
     },
     {
+        "label": "FeatureStore",
+        "importPath": "feast",
+        "description": "feast",
+        "isExtraImport": true,
+        "detail": "feast",
+        "documentation": {}
+    },
+    {
         "label": "SparkSource",
         "importPath": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
         "description": "feast.infra.offline_stores.contrib.spark_offline_store.spark_source",
@@ -88,12 +104,61 @@
         "documentation": {}
     },
     {
+        "label": "SparkSession",
+        "importPath": "pyspark.sql",
+        "description": "pyspark.sql",
+        "isExtraImport": true,
+        "detail": "pyspark.sql",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
+        "label": "col",
+        "importPath": "pyspark.sql.functions",
+        "description": "pyspark.sql.functions",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.functions",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "pyspark.sql.types",
+        "description": "pyspark.sql.types",
+        "isExtraImport": true,
+        "detail": "pyspark.sql.types",
+        "documentation": {}
+    },
+    {
+        "label": "StorageLevel",
+        "importPath": "pyspark",
+        "description": "pyspark",
+        "isExtraImport": true,
+        "detail": "pyspark",
+        "documentation": {}
+    },
+    {
         "label": "subprocess",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "subprocess",
         "description": "subprocess",
         "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
@@ -111,6 +176,23 @@
         "description": "feast.data_source",
         "isExtraImport": true,
         "detail": "feast.data_source",
+        "documentation": {}
+    },
+    {
+        "label": "PushMode",
+        "importPath": "feast.data_source",
+        "description": "feast.data_source",
+        "isExtraImport": true,
+        "detail": "feast.data_source",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
         "documentation": {}
     },
     {
@@ -183,6 +265,132 @@
         "description": "example_repo",
         "peekOfCode": "driver_stats_fs = FeatureService(\n    name=\"driver_activity\",\n    features=[driver_hourly_stats_view, customer_daily_profile_view],\n)",
         "detail": "example_repo",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_historical_features_entity_df",
+        "kind": 2,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "def fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve\n    # for all entities in the offline store instead\n    entity_df = pd.DataFrame.from_dict(\n        {\n            # entity's join key -> entity values\n            \"driver_id\": [1001, 1002, 1003],\n            # \"event_timestamp\" (reserved key) -> timestamps\n            \"event_timestamp\": [\n                datetime(2021, 4, 12, 10, 59, 42),",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_online_features",
+        "kind": 2,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "def fetch_online_features(store, use_feature_service: bool):\n    entity_rows = [\n        # {join_key: entity_value}\n        {\n            \"driver_id\": 1001,\n            \"val_to_add\": 1000,\n            \"val_to_add_2\": 2000,\n        },\n        {\n            \"driver_id\": 1002,",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "packages",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "packages = [\n    \"feast\",\n    \"feast[spark]\",\n    \"feast[singlestore]\",\n    \"pyarrow==19.0.1\"\n]\n# Construct the pip install command\ncommand = [sys.executable, \"-m\", \"pip\", \"install\"] + packages\n# Execute the command\nsubprocess.check_call(command)",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "command",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "command = [sys.executable, \"-m\", \"pip\", \"install\"] + packages\n# Execute the command\nsubprocess.check_call(command)\n# client\nwxd_hms_username = 'devadmin'\nwxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "wxd_hms_username",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "wxd_hms_username = 'devadmin'\nwxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "wxd_hms_password",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "wxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "iceberg_catalog",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "iceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "access_key",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "access_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "secret_key",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "secret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "bucket_name",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "bucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "hivemetastore_host",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "hivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "s3_endpoint",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "s3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "path = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve\n    # for all entities in the offline store instead\n    entity_df = pd.DataFrame.from_dict(\n        {",
+        "detail": "qa_feast_spark",
+        "documentation": {}
+    },
+    {
+        "label": "store",
+        "kind": 5,
+        "importPath": "qa_feast_spark",
+        "description": "qa_feast_spark",
+        "peekOfCode": "store = FeatureStore(repo_path=\".\")\nprint(\"\\n--- Run feast apply ---\")\nsubprocess.run([\"feast\", \"apply\"])\nprint(\"\\n--- Historical features for training ---\")\nfetch_historical_features_entity_df(store, for_batch_scoring=False)\nprint(\"\\n--- Historical features for batch scoring ---\")\nfetch_historical_features_entity_df(store, for_batch_scoring=True)\nprint(\"\\n--- Load features into online store ---\")\nstore.materialize_incremental(end_date=datetime.now())\nprint(\"\\n--- Online features ---\")",
+        "detail": "qa_feast_spark",
         "documentation": {}
     },
     {

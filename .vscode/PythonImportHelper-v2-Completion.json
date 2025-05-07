@@ -171,28 +171,28 @@
         "documentation": {}
     },
     {
-        "label": "PushMode",
-        "importPath": "feast.data_source",
-        "description": "feast.data_source",
-        "isExtraImport": true,
-        "detail": "feast.data_source",
-        "documentation": {}
-    },
-    {
-        "label": "PushMode",
-        "importPath": "feast.data_source",
-        "description": "feast.data_source",
-        "isExtraImport": true,
-        "detail": "feast.data_source",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "PushMode",
+        "importPath": "feast.data_source",
+        "description": "feast.data_source",
+        "isExtraImport": true,
+        "detail": "feast.data_source",
+        "documentation": {}
+    },
+    {
+        "label": "PushMode",
+        "importPath": "feast.data_source",
+        "description": "feast.data_source",
+        "isExtraImport": true,
+        "detail": "feast.data_source",
         "documentation": {}
     },
     {
@@ -317,7 +317,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "wxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to",
+        "peekOfCode": "wxd_hms_password = 'AX2Z1MBUoOergIb'\n# landingdev\niceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -326,7 +326,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "iceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory",
+        "peekOfCode": "iceberg_catalog = \"thidiemcatalog\"\naccess_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -335,7 +335,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "access_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)",
+        "peekOfCode": "access_key = \"WEeGX66cjJBVgira3DcU\"\nsecret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -344,7 +344,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "secret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change",
+        "peekOfCode": "secret_key = \"BgbbrH08yKFcM4rz1RPUlRxWn3yuMV46W1nE0uTO\"\nbucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -353,7 +353,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "bucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())",
+        "peekOfCode": "bucket_name = \"thidiem\"\nhivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -362,7 +362,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "hivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):",
+        "peekOfCode": "hivemetastore_host = \"thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.cluster.local:9083\"\ns3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change",
         "detail": "qa_feast_spark",
         "documentation": {}
     },
@@ -371,7 +371,7 @@
         "kind": 5,
         "importPath": "qa_feast_spark",
         "description": "qa_feast_spark",
-        "peekOfCode": "s3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())\ndef fetch_historical_features_entity_df(store: FeatureStore, for_batch_scoring: bool):\n    # Note: see https://docs.feast.dev/getting-started/concepts/feature-retrieval for more details on how to retrieve",
+        "peekOfCode": "s3_endpoint = \"https://rook-ceph-rgw.vnpt.vn\"\nimport os\nfrom feast import FeatureStore\nfrom feast.data_source import PushMode\n# Specify the path you want to change to\npath = '/mnts/code/QuangAnh/feastspark/main'\n# Change the current working directory\nos.chdir(path)\n# Optional: Verify the change\nprint(\"Current working directory:\", os.getcwd())",
         "detail": "qa_feast_spark",
         "documentation": {}
     },

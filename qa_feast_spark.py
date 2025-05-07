@@ -12,10 +12,6 @@ from datetime import datetime
 
 import pandas as pd
 
-from feast import FeatureStore
-from feast.data_source import PushMode
-
-
 # Define the list of packages to install
 packages = [
     "feast",
@@ -44,6 +40,9 @@ hivemetastore_host = "thrift://ibm-lh-lakehouse-hive-metastore-svc.zen.svc.clust
 s3_endpoint = "https://rook-ceph-rgw.vnpt.vn"
 
 import os
+
+from feast import FeatureStore
+from feast.data_source import PushMode
 
 # Specify the path you want to change to
 path = '/mnts/code/QuangAnh/feastspark/main'
